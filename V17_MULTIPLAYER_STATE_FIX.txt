@@ -1,0 +1,7 @@
+V17 Multiplayer State Fix
+
+- Turn and round are derived from score-card progress instead of independently advanced on every iPhone.
+- Periodic player snapshots heal missed Supabase Broadcast events.
+- Invalid/stale progress triggers an automatic sync request instead of freezing or advancing incorrectly.
+- A player automatically resets their dice only when the derived table state says it is their turn again.
+- Finished state is derived from all complete scorecards.

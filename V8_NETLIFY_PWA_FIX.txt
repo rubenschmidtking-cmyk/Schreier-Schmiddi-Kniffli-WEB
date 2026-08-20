@@ -1,0 +1,1 @@
+V8 Netlify PWA fix: optimized brand PNG and increased Workbox precache limit to 3 MiB.

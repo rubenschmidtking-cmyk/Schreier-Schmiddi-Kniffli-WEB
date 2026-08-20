@@ -1,0 +1,8 @@
+V15 TURN-BASED ONLINE
+- Online 2–4 Spieler spielen jetzt wie am echten Tisch nacheinander.
+- Nur der aktive Spieler kann würfeln, halten und werten.
+- Alle anderen sehen Würfel, gehaltene Würfel und Roll-Animation live.
+- Nach der Wertung wechselt der Zug automatisch zum nächsten Spieler.
+- Nach dem letzten Spieler startet die nächste Runde.
+- Spielende weiterhin erst, wenn alle Scorecards vollständig sind.
+- V14: Full House 25, Erstwurfbonus +5 bleibt erhalten.

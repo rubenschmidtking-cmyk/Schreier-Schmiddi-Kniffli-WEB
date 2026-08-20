@@ -1,0 +1,2 @@
+V16 VERIFIED MULTIPLAYER
+End-of-round sync guard added to prevent phantom rounds after delayed reconnect snapshots.

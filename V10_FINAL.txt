@@ -1,0 +1,3 @@
+SCHREIER SCHMIDDI KNIFFLI V10 FINAL
+Version 1.4.0
+Multiplayer reconnect + session restore + dice sound + score sound

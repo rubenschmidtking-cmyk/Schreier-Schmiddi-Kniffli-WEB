@@ -1,0 +1,3 @@
+SCHREIER SCHMIDDI KNIFFLI — V4 NETLIFY SAFE
+If this file is visible in the GitHub repository root, the V4 files were uploaded.
+package.json build command must be: vite build
