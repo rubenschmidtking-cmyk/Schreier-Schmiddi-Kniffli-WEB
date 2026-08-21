@@ -29,12 +29,11 @@
 - 5 Würfel, maximal 3 Würfe je Runde.
 - 18 Kategorien / 18 Runden.
 - Oberer Bonus: +35 ab 63.
-- 2 Paare 20, Drilling 15, Vierling 25, Full House 25.
+- 2 Paare 15, Drilling 15, Vierling 25, Full House 25.
 - Kleine Straße 30 (vier aufeinanderfolgende Zahlen).
 - Große Straße 40 (fünf aufeinanderfolgende Zahlen).
-- Kniffli 50.
+- Dice Dash 50.
 - Alle gerade 20, alle ungerade 20.
-- Exakter Wurf 15 = 15 bei Gesamtaugenzahl 15.
 - Exakter Wurf 20 = 20 bei Gesamtaugenzahl 20.
 - Chance = Augensumme.
 

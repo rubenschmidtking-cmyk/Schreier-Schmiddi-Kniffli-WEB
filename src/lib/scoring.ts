@@ -30,7 +30,7 @@ function baseScoreCategory(category: ScoreCategory, dice: number[]): number {
     case 'fours': return dice.filter(v => v === 4).reduce((a,b) => a+b, 0)
     case 'fives': return dice.filter(v => v === 5).reduce((a,b) => a+b, 0)
     case 'sixes': return dice.filter(v => v === 6).reduce((a,b) => a+b, 0)
-    case 'twoPairs': return countValues.filter(c => c >= 2).length >= 2 ? 20 : 0
+    case 'twoPairs': return countValues.filter(c => c >= 2).length >= 2 ? 15 : 0
     case 'threeOfAKind': return countValues.some(c => c >= 3) ? sum : 0
     case 'fourOfAKind': return countValues.some(c => c >= 4) ? sum : 0
     case 'fullHouse': return [...countValues].sort((a,b) => a-b).join(',') === '2,3' ? 25 : 0
@@ -44,7 +44,6 @@ function baseScoreCategory(category: ScoreCategory, dice: number[]): number {
     case 'kniffli': return countValues.includes(5) ? 50 : 0
     case 'allEven': return dice.every(v => v % 2 === 0) ? 15 : 0
     case 'allOdd': return dice.every(v => v % 2 === 1) ? 15 : 0
-    case 'exact15': return sum === 15 ? 15 : 0
     case 'exact20': return sum === 20 ? 20 : 0
     case 'chance': return sum
   }

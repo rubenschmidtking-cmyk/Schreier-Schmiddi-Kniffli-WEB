@@ -1,5 +1,5 @@
 export const upperCategories = ['ones','twos','threes','fours','fives','sixes'] as const
-export const lowerCategories = ['twoPairs','threeOfAKind','fourOfAKind','fullHouse','smallStraight','largeStraight','kniffli','allEven','allOdd','exact15','exact20','chance'] as const
+export const lowerCategories = ['twoPairs','threeOfAKind','fourOfAKind','fullHouse','smallStraight','largeStraight','kniffli','allEven','allOdd','exact20','chance'] as const
 export const categories = [...upperCategories, ...lowerCategories] as const
 export type ScoreCategory = typeof categories[number]
 export type Difficulty = 'easy' | 'normal' | 'psycho'

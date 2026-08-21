@@ -2,7 +2,7 @@
 
 ## A. GitHub
 
-1. Auf GitHub ein **leeres Repository** erstellen, z. B. `schreier-schmiddi-kniffli`.
+1. Auf GitHub ein **leeres Repository** erstellen, z. B. `schmiddi-schreier-dice-dash`.
 2. Den kompletten Inhalt dieses Ordners in das Repository hochladen.
 3. `.env` niemals hochladen.
 
@@ -13,7 +13,7 @@ git init
 git add .
 git commit -m "Initial PWA"
 git branch -M main
-git remote add origin https://github.com/DEINNAME/schreier-schmiddi-kniffli.git
+git remote add origin https://github.com/DEINNAME/schmiddi-schreier-dice-dash.git
 git push -u origin main
 ```
 
@@ -40,7 +40,7 @@ Auf beiden iPhones:
 2. Teilen → **Zum Home-Bildschirm**.
 3. App-Icon antippen.
 
-Danach lässt sich Kniffli im Vollbild wie eine normale App starten.
+Danach lässt sich Dice Dash im Vollbild wie eine normale App starten.
 
 ## D. Updates
 

@@ -1,8 +1,8 @@
-# Schmiddi & Schreier Spezial – V18 Hardened
+# Schmiddi & Schreier Dice Dash – V18 Hardened
 
 **Version 1.9.0** · Multiplayer-Hardening mit Host-Authority, Protokollschutz, monotonen Score-Snapshots und robustem Reconnect.
 
-# Schreier Schmiddi Kniffli 🎲
+# Schmiddi & Schreier Dice Dash 🎲
 
 Eine iPhone-optimierte Progressive Web App (PWA) für unser Spezial-Kniffel.
 
@@ -18,16 +18,15 @@ Der obere Teil bleibt klassisch. Ab **63 Punkten** gibt es **35 Bonuspunkte**.
 
 Der untere Teil:
 
-- 2 Paare = 20
+- 2 Paare = 15
 - Drilling = Summe aller 5 Würfel bei mindestens 3 gleichen
 - Vierling = Summe aller 5 Würfel bei mindestens 4 gleichen
 - Full House = 25
 - Kleine Straße = 30
 - Große Straße = 40
-- Kniffli = 50
+- Dice Dash = 50
 - Alle gerade = 15
 - Alle ungerade = 15
-- Exakter Wurf 15 = 15
 - Exakter Wurf 20 = 20
 - Chance = Augensumme
 
@@ -59,7 +58,7 @@ Die Datei `.env` **nicht** committen. Sie ist bereits in `.gitignore`.
 ```bash
 git init
 git add .
-git commit -m "Initial Schreier Schmiddi Kniffli PWA"
+git commit -m "Initial Schmiddi & Schreier Dice Dash PWA"
 git branch -M main
 git remote add origin DEINE_GITHUB_REPO_URL
 git push -u origin main
@@ -78,7 +77,7 @@ Siehe [`SUPABASE_SETUP.md`](./SUPABASE_SETUP.md).
 1. Die Netlify-URL in **Safari** öffnen.
 2. Teilen-Symbol antippen.
 3. **Zum Home-Bildschirm** wählen.
-4. Kniffli startet danach als eigenständige Vollbild-PWA.
+4. Dice Dash startet danach als eigenständige Vollbild-PWA.
 
 ## Qualität prüfen
 
@@ -95,7 +94,7 @@ Der vollständige Übergabe-Prompt steht in [`CLAUDE_PROMPT.md`](./CLAUDE_PROMPT
 This package includes `src/vite-env.d.ts` with Vite/PWA client typings and a null-safe Supabase Realtime cleanup in `OnlineMatch.tsx`.
 
 ## V6 Brand Final
-This package includes the final **Schmiddi & Schreier Spezial** app icon and a complete blue/red/gold visual refresh across the home screen, dice tray, score block, multiplayer lobby, modals and result screen. The V5 multiplayer round-advance fix remains included.
+This package includes the final **Schmiddi & Schreier Dice Dash** app icon and a complete blue/red/gold visual refresh across the home screen, dice tray, score block, multiplayer lobby, modals and result screen. The V5 multiplayer round-advance fix remains included.
 
 Deployment marker: `V6_BRAND_FINAL.txt`
 

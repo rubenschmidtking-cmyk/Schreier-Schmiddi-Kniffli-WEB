@@ -26,12 +26,12 @@ export default function DiceTray({ dice, rollsUsed, submitted, sound, onRoll, on
     setRolling(true)
     onRollStart?.()
     playRollSound(sound)
-    const timer = window.setInterval(() => setPreview(dice.map(d => d.held ? d.value : Math.floor(Math.random()*6)+1)), 65)
+    const timer = window.setInterval(() => setPreview(dice.map(d => d.held ? d.value : Math.floor(Math.random()*6)+1)), 52)
     window.setTimeout(() => {
       clearInterval(timer)
       setRolling(false)
       onRoll()
-    }, 560)
+    }, 760)
   }
 
   const isRolling = rolling || externalRolling

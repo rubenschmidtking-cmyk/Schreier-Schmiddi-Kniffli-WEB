@@ -44,7 +44,7 @@ export default function GameScreen({ settings, onExit }: Props) {
       setPlayers(p => {
         if (p[1].submitted) return p
         const result = playCpuRound(p[1], settings.cpuDifficulty)
-        setCpuStatus(`${result.category === 'kniffli' ? 'KNIFFLI!' : 'hat eingetragen'} · ${result.points} P.`)
+        setCpuStatus(`${result.category === 'kniffli' ? 'DICE DASH!' : 'hat eingetragen'} · ${result.points} P.`)
         return [p[0], result.player]
       })
     }, 1050 + Math.random() * 450)
@@ -92,7 +92,7 @@ export default function GameScreen({ settings, onExit }: Props) {
   const rematch = () => { advancingRef.current = false; setPlayers(makePlayers()); setRound(1); setFinished(false); setAdvancing(false); setCpuStatus('macht sich bereit') }
   if (finished) return <ResultScreen players={players} onRematch={rematch} onHome={onExit} />
 
-  return <main className="game-screen screen-shell">
+  return <main className="game-screen screen-shell dice-dash-screen">
     <Confetti active={confetti} />
     <header className="game-header">
       <button className="icon-button" onClick={onExit} aria-label="Zurück"><ChevronLeft/></button>
@@ -100,7 +100,7 @@ export default function GameScreen({ settings, onExit }: Props) {
       <div className="top-score"><small>{me.name}</small><strong>{myTotal}</strong></div>
       <div className="top-score opponent"><small>Schmiddi</small><strong>{cpuTotal}</strong></div>
     </header>
-    <div className="game-brand-strip"><img src="/icons/icon-192.png" alt=""/><span><b>SCHMIDDI &amp; SCHREIER</b><small>SPEZIAL · {filledCount(me.scoreCard)}/{TOTAL_ROUNDS} FELDER</small></span></div>
+    <div className="game-brand-strip dash-brand-strip"><img src="/brand/dice-dash-logo.png" alt="Schmiddi &amp; Schreier Dice Dash"/><span><b>SCHMIDDI &amp; SCHREIER</b><small>DICE DASH · {filledCount(me.scoreCard)}/{TOTAL_ROUNDS} FELDER</small></span></div>
     <div className="game-progress" aria-label={`${filledCount(me.scoreCard)} von ${TOTAL_ROUNDS} Feldern ausgefüllt`}><span style={{ width: `${Math.round((filledCount(me.scoreCard)/TOTAL_ROUNDS)*100)}%` }} /></div>
     <div className="turn-guide">
       <span className={me.rollsUsed === 0 ? 'active' : 'done'}>1 · WÜRFELN</span>

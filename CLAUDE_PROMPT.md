@@ -1,6 +1,6 @@
-# Prompt für Claude Code – Schreier Schmiddi Kniffli
+# Prompt für Claude Code – Schmiddi & Schreier Dice Dash
 
-Du übernimmst ein bestehendes, lauffähiges GitHub-Projekt namens **„Schreier Schmiddi Kniffli“**. Es ist eine iOS-optimierte Progressive Web App für ein eigenes Kniffel-Regelwerk. Arbeite **direkt auf der vorhandenen Codebasis** und behandle sie als Source of Truth. Lies zuerst `README.md`, `GAME_SPEC.md`, `src/lib/rules.ts`, `src/lib/scoring.ts`, `src/lib/game.ts`, `src/lib/cpu.ts` und die vorhandenen UI-Komponenten vollständig.
+Du übernimmst ein bestehendes, lauffähiges GitHub-Projekt namens **„Schmiddi & Schreier Dice Dash“**. Es ist eine iOS-optimierte Progressive Web App für ein eigenes Kniffel-Regelwerk. Arbeite **direkt auf der vorhandenen Codebasis** und behandle sie als Source of Truth. Lies zuerst `README.md`, `GAME_SPEC.md`, `src/lib/rules.ts`, `src/lib/scoring.ts`, `src/lib/game.ts`, `src/lib/cpu.ts` und die vorhandenen UI-Komponenten vollständig.
 
 ## Ziel
 
@@ -15,16 +15,15 @@ Oberer Teil:
 - Bonus = 35 Punkte ab 63 Punkten im oberen Teil
 
 Unterer Teil:
-- 2 Paare = 20
+- 2 Paare = 15
 - Drilling = Summe aller 5 Würfel bei mindestens 3 gleichen
 - Vierling = Summe aller 5 Würfel bei mindestens 4 gleichen
 - Full House = 25
 - Kleine Straße = 30
 - Große Straße = 40
-- Kniffli = 50
+- Dice Dash = 50
 - Alle gerade = 15
 - Alle ungerade = 15
-- Exakter Wurf 15 = 15, wenn Gesamtaugenzahl exakt 15
 - Exakter Wurf 20 = 20, wenn Gesamtaugenzahl exakt 20
 - Chance = Summe aller Würfel
 
@@ -56,7 +55,7 @@ Keine generische Bootstrap-/Dashboard-Optik. Die App soll eine klare eigene Iden
 - warmes cremefarbenes Papier für den Scoreblock
 - kräftiges Orange als primäre Action-/Hold-Farbe
 - Lime nur als seltenes Success-/Highlight-Signal
-- fette, enge Display-Typografie für `SCHREIER SCHMIDDI KNIFFLI`
+- fette, enge Display-Typografie für `SCHMIDDI & SCHREIER DICE DASH`
 - Scoreblock erinnert an einen echten Kniffelblock, ist aber vollständig interaktiv
 - keine Emoji-Würfel im eigentlichen Gameinterface
 - iOS Safe Areas (`env(safe-area-inset-*)`) immer beachten
@@ -79,7 +78,7 @@ Die Würfel sollen das stärkste Element der App sein. Entwickle die vorhandene 
 - Roll-Sound + dezentes Haptic/Vibration Feedback, sofern Browser unterstützt
 - Shake-to-Roll optional; auf iOS Permission nur durch klare User-Geste anfragen
 - `prefers-reduced-motion` respektieren
-- Kniffli = besondere Celebration (Konfetti, Score-Pop, Haptic), nicht kitschig
+- Dice Dash = besondere Celebration (Konfetti, Score-Pop, Haptic), nicht kitschig
 
 Keine kopierte Grafik oder 1:1-Nachbildung einer bestehenden Dice-App. Nutze bewährte Interaktionsmuster, aber ein eigenes visuelles System.
 
@@ -125,7 +124,7 @@ Füge Tests hinzu für:
 - Randfälle kleine/große Straße
 - Full House
 - 1/2 Paare
-- exakt 15/20
+- exakt 20
 - Bonus ab genau 63
 - Rundenwechsel
 - gehaltene Würfel
@@ -177,7 +176,7 @@ Wichtig: Die App soll **Spaß machen und extrem schnell verständlich sein**. Im
 
 
 ## V7 visual direction (must preserve)
-- Use the integrated original `Schmiddi & Schreier Spezial` app icon as the visual north star.
+- Use the integrated original `Schmiddi & Schreier Dice Dash` app icon as the visual north star.
 - Overall palette: classic royal blue, glossy red/white title accents, restrained gold, warm ivory score paper.
 - Dice should look like physical classic white/ivory dice, not emoji or flat tiles: rounded/beveled corners, subtle plastic/ivory shading, recessed glossy black pips, contact shadows, slight per-die resting rotations and a tactile tumble/bounce animation.
 - Preserve mobile performance and 5-dice readability on narrow iPhones.

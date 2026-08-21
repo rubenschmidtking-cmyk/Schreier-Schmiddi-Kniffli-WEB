@@ -9,9 +9,9 @@ export default defineConfig({
       registerType: 'autoUpdate',
       includeAssets: ['icons/icon-192.png', 'icons/icon-512.png', 'icons/icon-512-maskable.png', 'icons/apple-touch-icon.png', 'icons/favicon-32.png', 'sounds/dice-roll.mp3', 'sounds/score-lock.mp3'],
       manifest: {
-        name: 'Schmiddi & Schreier Spezial',
-        short_name: 'S&S Spezial',
-        description: 'Schmiddi & Schreier Spezial – das Würfelspiel für 2–4 iPhones, Pass & Play oder gegen Schmiddi CPU.',
+        name: 'Schmiddi & Schreier Dice Dash',
+        short_name: 'Dice Dash',
+        description: 'Schmiddi & Schreier Dice Dash – das Würfelspiel als iPhone Web App für Solo, Lokal und Online mit bis zu 4 Spielern.',
         theme_color: '#06366f',
         background_color: '#031b38',
         display: 'standalone',

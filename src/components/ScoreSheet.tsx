@@ -46,7 +46,7 @@ export default function ScoreSheet({ me, opponents, opponent, myLabel, opponentL
   return (
     <section className={`score-sheet player-columns-${players.length}`}>
       <div className="paper-title">
-        <div><span className="tiny-label">ORIGINAL HAUSREGELN</span><h2>Schmiddi &amp; Schreier Spezial</h2><small className="sheet-progress">{filledCount(me.scoreCard)} von {upperCategories.length + lowerCategories.length} Feldern</small></div>
+        <div><span className="tiny-label">ORIGINAL HAUSREGELN</span><h2>Schmiddi &amp; Schreier Dice Dash</h2><small className="sheet-progress">{filledCount(me.scoreCard)} von {upperCategories.length + lowerCategories.length} Feldern</small></div>
         <div className="mini-die">⚄</div>
       </div>
       <div className="score-table-scroll">

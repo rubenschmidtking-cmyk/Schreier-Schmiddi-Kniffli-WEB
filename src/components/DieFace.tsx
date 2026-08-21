@@ -6,11 +6,27 @@ interface Props {
   onClick?: () => void
 }
 
-const pipMap: Record<number, number[]> = {
-  1: [4], 2: [0,8], 3: [0,4,8], 4: [0,2,6,8], 5: [0,2,4,6,8], 6: [0,2,3,5,6,8]
+type PipPosition =
+  | 'top-left'
+  | 'top-right'
+  | 'mid-left'
+  | 'mid-right'
+  | 'center'
+  | 'bottom-left'
+  | 'bottom-right'
+
+const faceMap: Record<number, PipPosition[]> = {
+  1: ['center'],
+  2: ['top-left', 'bottom-right'],
+  3: ['top-left', 'center', 'bottom-right'],
+  4: ['top-left', 'top-right', 'bottom-left', 'bottom-right'],
+  5: ['top-left', 'top-right', 'center', 'bottom-left', 'bottom-right'],
+  6: ['top-left', 'top-right', 'mid-left', 'mid-right', 'bottom-left', 'bottom-right'],
 }
 
 export default function DieFace({ value, held = false, rolling = false, index = 0, onClick }: Props) {
+  const pips = faceMap[Math.min(6, Math.max(1, value))] ?? faceMap[1]
+
   return (
     <button
       type="button"
@@ -19,8 +35,10 @@ export default function DieFace({ value, held = false, rolling = false, index = 
       onClick={onClick}
       aria-label={`Würfel ${index + 1}: ${value}${held ? ', gehalten' : ''}`}
     >
-      <span className="die-grid">
-        {Array.from({length:9}, (_,i) => <span key={i} className={pipMap[value]?.includes(i) ? 'pip on' : 'pip'} />)}
+      <span className={`die-face value-${value}`}>
+        {pips.map((spot, pipIndex) => (
+          <span key={`${value}-${spot}-${pipIndex}`} className={`pip-real ${spot}`} />
+        ))}
       </span>
       {held && <span className="held-pill">HOLD</span>}
     </button>

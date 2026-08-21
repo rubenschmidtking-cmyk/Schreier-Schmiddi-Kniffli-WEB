@@ -1,4 +1,4 @@
-# Product Spec – Schreier Schmiddi Kniffli
+# Product Spec – Schmiddi & Schreier Dice Dash
 
 ## Kernidee
 
@@ -23,16 +23,15 @@ Bonus: 35 Punkte ab 63 Punkten im oberen Teil.
 
 | Kategorie | Bedingung | Punkte |
 |---|---|---:|
-| 2 Paare | 2 unterschiedliche Werte jeweils mindestens doppelt | 20 |
+| 2 Paare | 2 unterschiedliche Werte jeweils mindestens doppelt | 15 |
 | Drilling | mindestens 3 gleiche | Summe aller 5 Würfel |
 | Vierling | mindestens 4 gleiche | Summe aller 5 Würfel |
 | Full House | exakt 2 + 3 gleiche | 25 |
 | Kleine Straße | beliebige Folge aus 4 Zahlen | 30 |
 | Große Straße | 1–5 oder 2–6 | 40 |
-| Kniffli | 5 gleiche | 50 |
+| Dice Dash | 5 gleiche | 50 |
 | Alle gerade | alle 5 Würfel sind 2/4/6 | 15 |
 | Alle ungerade | alle 5 Würfel sind 1/3/5 | 15 |
-| Exakter Wurf 15 | Augensumme exakt 15 | 15 |
 | Exakter Wurf 20 | Augensumme exakt 20 | 20 |
 | Chance | keine Bedingung | Augensumme |
 
@@ -46,7 +45,7 @@ Bonus: 35 Punkte ab 63 Punkten im oberen Teil.
 - Tap-to-hold: Würfel hebt sich an, orange Outline, HOLD-Pill
 - Haptik über Web Vibration API, wo verfügbar
 - optional Shake-to-Roll mit iOS Permission
-- Kniffli: Konfetti + stärkeres Feedback
+- Dice Dash: Konfetti + stärkeres Feedback
 - Spielblock bleibt während des Spiels sichtbar
 - Gegnerpunkte permanent sichtbar
 
@@ -62,9 +61,9 @@ Bonus: 35 Punkte ab 63 Punkten im oberen Teil.
 
 ## Nicht ändern ohne explizite Produktentscheidung
 
-- Name: `Schreier Schmiddi Kniffli`
+- Name: `Schmiddi & Schreier Dice Dash`
 - 19 Kategorien
-- Kniffli = 50
+- Dice Dash = 50
 - Kleine Straße = 30
 - Große Straße = 40
 - Bonus = 35 ab 63

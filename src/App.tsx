@@ -1,5 +1,5 @@
 import { useEffect, useMemo, useState } from 'react'
-import { Bot, BookOpen, Download, Gamepad2, Globe2, Settings2, Sparkles, Users2 } from 'lucide-react'
+import { BookOpen, Download, Gamepad2, Globe2, Settings2, Users2, Bot } from 'lucide-react'
 import GameScreen from './components/GameScreen'
 import LocalGameScreen from './components/LocalGameScreen'
 import OnlineMatch from './components/OnlineMatch'
@@ -29,7 +29,6 @@ function cleanRoom(value: string) {
 }
 
 function roleStorageKey(code: string) { return `kniffli:room-role:${code}` }
-
 
 export default function App() {
   const [settings, setSettings] = useState<Settings>(() => loadSettings())
@@ -68,9 +67,11 @@ export default function App() {
   const home = () => setScreen({ kind: 'home' })
   const openOnline = (code: string, role: 'host'|'guest') => {
     const clean = cleanRoom(code)
+    if (clean.length !== 5) return
     try { localStorage.setItem(roleStorageKey(clean), role) } catch {}
     setScreen({ kind: 'online', code: clean, role })
   }
+
   const canJoin = joinCode.length === 5
   const greeting = useMemo(() => settings.playerName.trim() || 'Spieler 1', [settings.playerName])
 
@@ -79,55 +80,87 @@ export default function App() {
   if (screen.kind === 'online') return <OnlineMatch code={screen.code} role={screen.role} settings={settings} onExit={home} />
 
   return (
-    <main className="home-screen screen-shell">
-      <div className="home-grain" aria-hidden="true" />
-      <header className="home-topbar">
-        <button className="round-action" onClick={() => setShowRules(true)} aria-label="Regeln"><BookOpen /></button>
-        <div className="brand-mini">S&amp;S</div>
-        <button className="round-action" onClick={() => setShowSettings(true)} aria-label="Einstellungen"><Settings2 /></button>
+    <main className="home-screen screen-shell dash-home">
+      <div className="dash-bg-glow" aria-hidden="true" />
+      <header className="dash-home-header">
+        <button className="round-action neon" onClick={() => setShowRules(true)} aria-label="Anleitung"><BookOpen /></button>
+        <span className="dash-header-pill">SCHMIDDI &amp; SCHREIER</span>
+        <button className="round-action neon" onClick={() => setShowInstall(true)} aria-label="Installieren"><Download /></button>
       </header>
 
-      <section className="hero classic-hero">
-        <img className="hero-app-icon" src="/icons/icon-512.png" alt="Schmiddi & Schreier Spezial App Icon" />
-        <div className="hero-copy">
-          <span className="eyebrow brand-eyebrow"><Sparkles size={13}/> DAS SCHMIDDI &amp; SCHREIER SPEZIAL</span>
-          <h1><span>SCHMIDDI</span><span>&amp; SCHREIER</span><em>SPEZIAL</em></h1>
-          <p>Das Spezial-Kniffli für 1–4 Spieler. Gespielt wird, bis der Block wirklich voll ist · 5 Würfel · maximal 3 Würfe.</p><div className="hero-chips"><span>🎲 Block komplett</span><span>⚡ 1. Wurf +5</span><span>📱 iPhone optimiert</span></div>
-        </div>
+      <section className="dash-hero">
+        <img className="dash-float-die dash-float-die-a" src="/brand/dice-dash-die.png" alt="" aria-hidden="true" />
+        <img className="dash-float-die dash-float-die-b" src="/brand/dice-dash-die.png" alt="" aria-hidden="true" />
+        <img className="dash-float-die dash-float-die-c" src="/brand/dice-dash-die.png" alt="" aria-hidden="true" />
+        <img className="dash-logo" src="/brand/dice-dash-logo.png" alt="Schmiddi & Schreier Dice Dash" />
+        <p className="dash-subline">Dice Dash als iPhone Web App – solo, lokal oder online mit bis zu 4 Spielern.</p>
       </section>
 
-      <section className="mode-stack" aria-label="Spielmodus wählen"><div className="section-kicker">SPIELMODUS</div>
-        <button className="mode-card primary-mode" onClick={() => setScreen({ kind: 'cpu' })}>
-          <span className="mode-icon"><Bot /></span>
-          <span><small>SOFORT SPIELEN</small><strong>Gegen Schmiddi CPU</strong><em>Easy · Normal · Psycho</em></span>
-          <Gamepad2 className="mode-arrow" />
+      <section className="dash-mode-stack" aria-label="Spielmodus wählen">
+        <button className="dash-mode-button dash-mode-primary" onClick={() => setScreen({ kind: 'cpu' })}>
+          <span className="dash-button-icon"><Bot /></span>
+          <span>SOLO SPIELEN</span>
         </button>
 
-        <div className="online-card">
-          <div className="online-card-head">
-            <span className="mode-icon"><Globe2 /></span>
-            <span><small>2–4 iPHONES · LIVE</small><strong>Online mit bis zu 4 Spielern</strong></span>
+        <button className="dash-mode-button" onClick={() => setScreen({ kind: 'local' })}>
+          <span className="dash-button-icon"><Users2 /></span>
+          <span>LOKAL SPIELEN</span>
+        </button>
+
+        <div className="dash-online-panel">
+          <div className="dash-online-head">
+            <span className="dash-button-icon globe"><Globe2 /></span>
+            <div>
+              <strong>ONLINE SPIELEN</strong>
+              <small>Live auf 2–4 iPhones · nacheinander wie am echten Tisch</small>
+            </div>
           </div>
-          <div className="online-actions">
-            <label className="online-name-field"><span>DEIN NAME</span><input value={settings.playerName} maxLength={16} autoComplete="nickname" placeholder="z. B. Ruben" onChange={e => setSettings({...settings, playerName:e.target.value})}/></label>
-            <button className="secondary-button" disabled={!settings.playerName.trim()} onClick={() => openOnline(randomRoomCode(), 'host')}><Users2 /> Raum erstellen</button>
-            <div className="join-row">
-              <input inputMode="text" autoCapitalize="characters" autoCorrect="off" maxLength={5} value={joinCode} onChange={e => setJoinCode(cleanRoom(e.target.value))} placeholder="CODE" aria-label="Raumcode" />
-              <button disabled={!canJoin || !settings.playerName.trim()} onClick={() => canJoin && settings.playerName.trim() && openOnline(joinCode, 'guest')}>BEITRETEN</button>
+
+          <label className="dash-inline-field">
+            <span>DEIN NAME</span>
+            <input
+              value={settings.playerName}
+              maxLength={16}
+              autoComplete="nickname"
+              placeholder="z. B. Ruben"
+              onChange={e => setSettings({ ...settings, playerName: e.target.value })}
+            />
+          </label>
+
+          <div className="dash-online-actions">
+            <button className="dash-small-action red" disabled={!settings.playerName.trim()} onClick={() => openOnline(randomRoomCode(), 'host')}>
+              RAUM ERSTELLEN
+            </button>
+            <div className="dash-join-row">
+              <input
+                inputMode="text"
+                autoCapitalize="characters"
+                autoCorrect="off"
+                maxLength={5}
+                value={joinCode}
+                onChange={e => setJoinCode(cleanRoom(e.target.value))}
+                placeholder="CODE"
+                aria-label="Raumcode"
+              />
+              <button disabled={!canJoin || !settings.playerName.trim()} onClick={() => canJoin && settings.playerName.trim() && openOnline(joinCode, 'guest')}>
+                BEITRETEN
+              </button>
             </div>
           </div>
         </div>
 
-        <button className="mode-card compact-mode" onClick={() => setScreen({ kind: 'local' })}>
-          <span className="mode-icon"><Users2 /></span>
-          <span><small>EIN iPHONE</small><strong>Pass & Play</strong><em>Abwechselnd spielen</em></span>
+        <button className="dash-mode-button" onClick={() => setShowRules(true)}>
+          <span className="dash-button-icon"><Gamepad2 /></span>
+          <span>ANLEITUNG</span>
         </button>
       </section>
 
-      <section className="home-footer-card">
-        <div><span className="status-dot done" /><span>Bereit für <b>{greeting}</b></span></div>
-        <button onClick={() => setShowInstall(true)}><Download /> Auf iPhone installieren</button>
-      </section>
+      <footer className="dash-home-footer">
+        <div className="dash-ready-chip"><span className="status-dot done" /> Bereit für <b>{greeting}</b></div>
+        <button className="dash-settings-button" onClick={() => setShowSettings(true)} aria-label="Einstellungen">
+          <Settings2 />
+        </button>
+      </footer>
 
       {showRules && <RulesModal onClose={() => setShowRules(false)} />}
       {showSettings && <SettingsModal settings={settings} onChange={setSettings} onClose={() => setShowSettings(false)} />}

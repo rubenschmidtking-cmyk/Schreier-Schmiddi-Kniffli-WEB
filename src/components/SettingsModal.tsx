@@ -13,7 +13,7 @@ export default function SettingsModal({ settings, onChange, onClose }: Props) {
   }
   return <div className="modal-backdrop" onClick={onClose}>
     <section className="modal-card settings-card" onClick={e => e.stopPropagation()}>
-      <div className="modal-head"><div><span className="eyebrow dark">SETTINGS</span><h2>Dein Kniffli</h2></div><button className="icon-button dark" onClick={onClose}><X /></button></div>
+      <div className="modal-head"><div><span className="eyebrow dark">SETTINGS</span><h2>Dein Dice Dash</h2></div><button className="icon-button dark" onClick={onClose}><X /></button></div>
       <label className="field-label">Dein Name<input value={settings.playerName} maxLength={16} onChange={e => onChange({...settings, playerName: e.target.value})} /></label>
       <label className="setting-row"><span><strong>Sound</strong><small>Würfel & Score Feedback</small></span><input type="checkbox" checked={settings.sound} onChange={e => onChange({...settings, sound:e.target.checked})}/></label>
       <button className="setting-row button-row" onClick={toggleShake}><span><strong>Shake to Roll</strong><small>iPhone schütteln zum Würfeln</small></span><span className={`switch ${settings.shakeToRoll ? 'on' : ''}`}><i /></span></button>

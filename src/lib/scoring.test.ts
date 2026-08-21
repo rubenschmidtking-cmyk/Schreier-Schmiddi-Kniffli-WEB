@@ -7,8 +7,8 @@ const DICE = {
   vierling: [4,4,4,4,6],
 } as const
 
-describe('Schreier Schmiddi Kniffli V9 rules', () => {
-  it('scores Kniffli as 50', () => expect(scoreCategory('kniffli', [5,5,5,5,5])).toBe(50))
+describe('Schmiddi & Schreier Dice Dash rules', () => {
+  it('scores Dice Dash as 50', () => expect(scoreCategory('kniffli', [5,5,5,5,5])).toBe(50))
   it('scores small straight as 30', () => expect(scoreCategory('smallStraight', [1,2,3,4,6])).toBe(30))
   it('scores large straight as 40', () => expect(scoreCategory('largeStraight', [2,3,4,5,6])).toBe(40))
   it('counts all five dice for Drilling', () => expect(scoreCategory('threeOfAKind', [...DICE.drilling])).toBe(20))
@@ -17,8 +17,9 @@ describe('Schreier Schmiddi Kniffli V9 rules', () => {
     expect(scoreCategory('allEven', [2,4,6,2,4])).toBe(15)
     expect(scoreCategory('allOdd', [1,3,5,1,5])).toBe(15)
   })
-  it('scores exact 15 and exact 20 by dice sum', () => {
-    expect(scoreCategory('exact15', [1,2,3,4,5])).toBe(15)
+  it('scores 2 pairs as 15 and exact 20 by dice sum', () => {
+    expect(scoreCategory('twoPairs', [2,2,5,5,6])).toBe(15)
+    expect(scoreCategory('twoPairs', [2,2,5,5,6], 1)).toBe(20)
     expect(scoreCategory('exact20', [2,3,4,5,6])).toBe(20)
   })
   it('adds +5 for a valid lower category scored after the first roll', () => {

@@ -59,7 +59,7 @@ export default function LocalGameScreen({ settings, onExit }: { settings: Settin
   const rematch = () => { setPlayers(makePlayers()); setActive(0); setRound(1); setFinished(false); setHandover(false) }
   if (finished) return <ResultScreen players={players} onRematch={rematch} onHome={onExit} />
 
-  if (handover) return <main className="handover-screen screen-shell">
+  if (handover) return <main className="handover-screen screen-shell dice-dash-screen">
     <div className="handover-icon"><Users2 /></div>
     <span className="eyebrow">PASS & PLAY</span>
     <h1>iPhone an<br/><em>{players[active].name}</em></h1>
@@ -67,7 +67,7 @@ export default function LocalGameScreen({ settings, onExit }: { settings: Settin
     <button className="primary-button" onClick={() => setHandover(false)}>ICH BIN BEREIT</button>
   </main>
 
-  return <main className="game-screen screen-shell">
+  return <main className="game-screen screen-shell dice-dash-screen">
     <Confetti active={confetti}/>
     <header className="game-header">
       <button className="icon-button" onClick={onExit}><ChevronLeft/></button>
@@ -75,7 +75,7 @@ export default function LocalGameScreen({ settings, onExit }: { settings: Settin
       <div className="top-score"><small>{players[0].name}</small><strong>{scoreTotals(players[0].scoreCard).total}</strong></div>
       <div className="top-score opponent"><small>{players[1].name}</small><strong>{scoreTotals(players[1].scoreCard).total}</strong></div>
     </header>
-    <div className="game-brand-strip"><img src="/icons/icon-192.png" alt=""/><span><b>SCHMIDDI &amp; SCHREIER</b><small>SPEZIAL · {filledCount(players[0].scoreCard)}/{TOTAL_ROUNDS} FELDER</small></span></div>
+    <div className="game-brand-strip dash-brand-strip"><img src="/brand/dice-dash-logo.png" alt="Schmiddi &amp; Schreier Dice Dash"/><span><b>SCHMIDDI &amp; SCHREIER</b><small>DICE DASH · {filledCount(players[0].scoreCard)}/{TOTAL_ROUNDS} FELDER</small></span></div>
     <div className="cpu-strip"><Users2 size={16}/><span><b>{me.name}</b> ist dran</span><i className="status-dot done"/></div>
     <DiceTray dice={me.dice} rollsUsed={me.rollsUsed} submitted={me.submitted} sound={settings.sound} onRoll={roll} onToggle={id => setPlayers(prev => {
       const next: [PlayerState, PlayerState] = [...prev]; next[active] = toggleDie(next[active], id); return next
